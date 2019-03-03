@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Frase } from '../shared/frase.model';
 import { frases as frasesMock } from '../shared/frases.mock';
 
@@ -15,6 +15,8 @@ export class PainelComponent implements OnInit {
   public resposta : string;
   public percentual : number = 0;
   public tentativas : number = 3;
+
+  @Output() public encerraJogo : EventEmitter<string> = new EventEmitter();
   
   constructor() { 
       this.frases = frasesMock;
@@ -39,26 +41,20 @@ export class PainelComponent implements OnInit {
       this.percentual = ( (this.rodada*100) / this.frases.length );
 
       if(this.rodada != this.frases.length){
-        console.log("percentual: ", this.percentual);
         this.fraseAtual = this.frases[this.rodada];
         this.resposta = "";
-        console.log("Acertou!");
       }
       else{
-        console.log("Uau, você é realmente foda em inglês.");
+        this.encerraJogo.emit("vitoria");
       }
-
     }
     else{
-     
       this.tentativas--;
       if(this.tentativas == 0){
-        console.log("Acabou suas tentativas, você não conseguiu. You lose!");
+        this.encerraJogo.emit("derrota");
       }
-
-      console.log("tentativas: ", this.tentativas)
-      console.log("Errou!");
     }
   }
+
   
 }
