@@ -88,5 +88,12 @@
 				{"url": "/assets/ofertas/6/img2.jpg"}
 			]
 		}	
+	],
+	
+	"como-usar": [
+		{"id": 1, "descricao": "descrição 1"},
+		{"id": 2, "descricao": "descrição 2"},
+		{"id": 3, "descricao": "descrição 3"},
+		{"id": 4, "descricao": "descrição 4"}
 	]
 }
