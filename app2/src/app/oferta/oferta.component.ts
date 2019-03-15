@@ -23,7 +23,6 @@ export class OfertaComponent implements OnInit {
                        .then((oferta: Oferta) => 
                        {
                          this.oferta = oferta;
-                         console.log(this.oferta);
                        });
   }
 

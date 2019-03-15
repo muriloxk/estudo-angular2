@@ -21,7 +21,22 @@ export class OfertasService {
     }
 
     public getOfertaPorID(id: number): Promise<Oferta> {
-        return this.http.get(`${URL_API}/ofertas?id=${id}`).toPromise()
+        return this.http.get(`${URL_API}/ofertas?id=${id}`)
+                        .toPromise()
                         .then((resposta: Array<Oferta>) => resposta.shift());
+    }
+
+    public getComoUsarPorID(id: number): Promise<String> {
+        return this.http.get(`${URL_API}/como-usar?id=${id}`)
+                        .toPromise()
+                        .then((resposta: any) => {
+           return resposta.shift().descricao;
+        });
+    }
+
+    public getOndeFicaPorID(id: number): Promise<String> {
+        return this.http.get(`${URL_API}/onde-fica?id=${id}`).toPromise().then((resposta: any) => {
+            return resposta.shift().descricao;
+        });
     }
 }
