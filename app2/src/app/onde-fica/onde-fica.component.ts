@@ -11,7 +11,7 @@ export class OndeFicaComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.parent.params['id']);
+      console.log(this.route.parent.snapshot.params['id']);
   }
 
 }

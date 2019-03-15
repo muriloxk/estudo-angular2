@@ -14,8 +14,10 @@ export const ROUTES: Routes = [
     {path: 'diversao', component: DiversaoComponent},
     {path: 'oferta', component: OfertaComponent},
     {path: 'oferta/:id', component: OfertaComponent,
-    children: [
-        {path: 'onde-fica', component: OndeFicaComponent },
-        {path: 'como-usar', component: ComoUsarComponent }
-    ]},
+        children: [
+            {path: '', redirectTo:'onde-fica', pathMatch: 'full'},
+            {path: 'onde-fica', component: OndeFicaComponent },
+            {path: 'como-usar', component: ComoUsarComponent }
+        ]
+    },
 ]

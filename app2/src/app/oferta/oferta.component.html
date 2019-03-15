@@ -44,12 +44,18 @@
 
     <div class="row">
       <div class="col">
-        <nav class="nav">
-          
-          <a class="nav-link active" [routerLink]="['como-usar']"><xyz-como-usar></xyz-como-usar></a>
-          <a class="nav-link" [routerLink]="['onde-fica']"><xyz-onde-fica></xyz-onde-fica></a>
+        <ul class="nav nav-tabs"  role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" routerLink="como-usar" role="tab" aria-controls="home" aria-selected="true">Como usar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" routerLink="onde-fica" role="tab" aria-controls="profile" aria-selected="false">Onde fica?</a>
+          </li>
        
-        </nav>
+        </ul>
+        <div class="tab-content" >
+            <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>
