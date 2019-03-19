@@ -2,6 +2,9 @@ import { Oferta } from '../app/shared/ofertas.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_API } from './api.config';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 import 'rxjs';
 
 @Injectable()
@@ -26,7 +29,7 @@ export class OfertasService {
                         .then((resposta: Array<Oferta>) => resposta.shift());
     }
 
-    public getComoUsarPorID(id: number): Promise<String> {
+    public getComoUsarPorID(id: number): Promise<string> {
         return this.http.get(`${URL_API}/como-usar?id=${id}`)
                         .toPromise()
                         .then((resposta: any) => {
@@ -34,9 +37,15 @@ export class OfertasService {
         });
     }
 
-    public getOndeFicaPorID(id: number): Promise<String> {
+    public getOndeFicaPorID(id: number): Promise<string> {
         return this.http.get(`${URL_API}/onde-fica?id=${id}`).toPromise().then((resposta: any) => {
             return resposta.shift().descricao;
         });
+    }
+
+    public pesquisaOferta(termo: string): Observable<Oferta[]> {
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta=${termo}`).pipe(
+          map((resposta: any) => resposta.json())
+        );
     }
 }
