@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_API } from './api.config';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, retry, retryWhen, delay, take } from 'rxjs/operators';
 
 import 'rxjs';
 
@@ -44,8 +44,10 @@ export class OfertasService {
     }
 
     public pesquisaOferta(termo: string): Observable<Oferta[]> {
-        return this.http.get(`${URL_API}/ofertas?descricao_oferta=${termo}`).pipe(
-          map((resposta: any) => resposta.json())
-        );
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+                        .pipe(
+                            map((resposta: Array<Oferta>) => resposta),
+                            retryWhen(errors => errors.pipe(delay(1000), take(10)))
+                        );
     }
 }
