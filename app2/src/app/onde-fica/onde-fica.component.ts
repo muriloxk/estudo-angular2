@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { OfertasService } from '../ofertas.service';
 import { ThrowStmt } from '@angular/compiler';
 
@@ -16,9 +16,12 @@ export class OndeFicaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private ofertasService: OfertasService) { }
 
   ngOnInit() {
+
+      this.route.parent.params.subscribe((params: Params) => {
         this.ofertasService
-            .getOndeFicaPorID(this.route.parent.snapshot.params.id)
+            .getOndeFicaPorID(params.id )
             .then((resposta: any) => this.ondeFica = resposta);
+      });
   }
 
 }

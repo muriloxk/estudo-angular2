@@ -19,7 +19,6 @@ import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './como-usar/como-usar.component';
 import { OndeFicaComponent } from './onde-fica/onde-fica.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

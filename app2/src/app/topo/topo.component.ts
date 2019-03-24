@@ -22,12 +22,9 @@ export class TopoComponent implements OnInit {
 
   ngOnInit() {
     this.ofertas = this.subjectPesquisa.pipe(
-        debounceTime(1000),
+        debounceTime(500),
         distinctUntilChanged(),
         switchMap((termo: string) =>  {
-
-          console.log('Requisição http para a api');
-
           if (termo.trim() === '') {
             return of<Oferta[]>([]);
           }
@@ -47,8 +44,10 @@ export class TopoComponent implements OnInit {
     //   (ofertas: Oferta[]) => console.log(ofertas),
     //   (erro: any) => console.log(erro),
     //   (() => console.log('Fluxo de eventos completo')));
-
-    console.log("KeyUp", termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
+  }
+
+  public selecionarItem(): void {
+    this.pesquisa(' ');
   }
 }

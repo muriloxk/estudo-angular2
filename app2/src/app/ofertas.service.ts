@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { URL_API } from './api.config';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, retry, retryWhen, delay, take } from 'rxjs/operators';
-
 import 'rxjs';
 
 @Injectable()

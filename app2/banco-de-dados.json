@@ -94,13 +94,18 @@
 		{"id": 1, "descricao": "descrição 1"},
 		{"id": 2, "descricao": "descrição 2"},
 		{"id": 3, "descricao": "descrição 3"},
-		{"id": 4, "descricao": "descrição 4"}
+		{"id": 4, "descricao": "descrição 4"},		
+		{"id": 5, "descricao": "descrição 5"},
+		{"id": 6, "descricao": "descrição 6"}
+
 	],
 
 	"onde-fica": [
 		{"id": 1, "descricao": "descrição 1"},
 		{"id": 2, "descricao": "descrição 2"},
 		{"id": 3, "descricao": "descrição 3"},
-		{"id": 4, "descricao": "descrição 4"}
+		{"id": 4, "descricao": "descrição 4"},
+		{"id": 5, "descricao": "descrição 5"},
+		{"id": 6, "descricao": "descrição 6"}
 	]
 }

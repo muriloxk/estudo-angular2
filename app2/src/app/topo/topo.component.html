@@ -13,11 +13,22 @@
                  placeholder="Pesquise por ofertas..." 
                  #termoDaPesquisa
                  (keyup)="pesquisa(termoDaPesquisa.value)"/>
+
+                 <ul class="list-group" style="position: absolute; z-index: 999" >
+                  <li class="list-group-item" *ngFor="let oferta of ofertas | async">
+                    <a [routerLink]="['/oferta', oferta.id]" (click)="selecionarItem()">
+                        {{oferta.descricao_oferta}}
+                    </a>
+                  
+                  </li>
+                </ul>
         </div>
         <div class="col-md-2">
             <a a href="#"><img src="/assets/carrinho.png" alt="Carrinho"/></a>
         </div>
       </div>
+
+   
     </div>
   </nav>
 
