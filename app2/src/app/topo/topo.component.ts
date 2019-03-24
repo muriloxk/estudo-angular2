@@ -21,7 +21,6 @@ export class TopoComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-    
     this.ofertas = this.subjectPesquisa.pipe(
         debounceTime(1000),
         distinctUntilChanged(),
