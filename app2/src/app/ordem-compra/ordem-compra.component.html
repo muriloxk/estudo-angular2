@@ -3,7 +3,9 @@
 
       <h5>Sua Compra</h5>
       <hr />
-    <form [formGroup]="formulario" (ngSubmit)="confirmarCompra()">
+
+     
+    <form [formGroup]="formulario" (ngSubmit)="confirmarCompra()" *ngIf="idPedidoSalvo === undefined">
   
       <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
@@ -130,8 +132,12 @@
       <hr />
       <button 
         type="submit" 
-        class="btn btn-primary btn-lg"
-      >Cofirmar compra</button>
+        class="btn btn-primary btn-lg">Cofirmar compra</button>
     </form>
+
+
+    <div *ngIf="idPedidoSalvo !== undefined">
+      <xyz-sucesso-compra [idPedidoSalvo]="idPedidoSalvo"></xyz-sucesso-compra>
+    </div>
   </div>
 </div>
