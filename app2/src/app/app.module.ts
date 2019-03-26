@@ -8,6 +8,11 @@ import ptbr from '@angular/common/locales/pt';
 import { registerLocaleData  } from '@angular/common';
 registerLocaleData(ptbr);
 
+
+//forms
+
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { ROUTES } from  './app.routes';
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
@@ -18,6 +23,7 @@ import { DiversaoComponent } from './diversao/diversao.component';
 import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './como-usar/como-usar.component';
 import { OndeFicaComponent } from './onde-fica/onde-fica.component';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +35,14 @@ import { OndeFicaComponent } from './onde-fica/onde-fica.component';
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    OrdemCompraComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{

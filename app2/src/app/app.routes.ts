@@ -5,6 +5,7 @@ import { DiversaoComponent } from './diversao/diversao.component';
 import { OfertaComponent } from './oferta/oferta.component';
 import { OndeFicaComponent } from './onde-fica/onde-fica.component';
 import { ComoUsarComponent } from './como-usar/como-usar.component';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 
 export const ROUTES: Routes = [
@@ -13,6 +14,7 @@ export const ROUTES: Routes = [
     {path: 'diversao', component: DiversaoComponent},
     {path: 'diversao', component: DiversaoComponent},
     {path: 'oferta', component: OfertaComponent},
+    {path: 'ordem', component: OrdemCompraComponent},
     {path: 'oferta/:id', component: OfertaComponent,
         children: [
             {path: '', redirectTo:'onde-fica', pathMatch: 'full'},
