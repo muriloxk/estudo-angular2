@@ -13,7 +13,7 @@ import { style, trigger, state, transition, animate} from '@angular/animations';
       state('visivel', style({
         opacity: 1
       })),
-      transition('escondido <=> visivel', animate('2s ease-in'))
+      transition('escondido <=> visivel', animate('4s ease-in'))
     ])
   ]
 })
@@ -24,11 +24,9 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  public toggleEstado(): void {
-    console.log(this.estado);
     this.estado = this.estado === 'visivel' ? 'escondido' : 'visivel';
   }
+
+
 
 }
